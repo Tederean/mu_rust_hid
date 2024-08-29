@@ -11,6 +11,7 @@
 //!
 
 use alloc::{collections::BTreeMap, vec, vec::Vec};
+use thiserror_no_std::Error;
 
 use crate::{
     item_tokenizer::{DescriptorItemTokenizer, ReportItem, ReportItemType},
@@ -21,7 +22,7 @@ use crate::{
 };
 
 /// Defines errors generated during report descriptor parsing.
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Error, Debug, PartialEq, Eq, Clone, Copy)]
 pub enum ReportDescriptorError {
     InvalidMainItem,
     InvalidGlobalItem,

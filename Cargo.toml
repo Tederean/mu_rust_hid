@@ -8,9 +8,12 @@ repository = "https://github.com/microsoft/mu_rust_hid"
 keywords = ["hid"]
 categories = ["no-std", "parser-implementations"]
 
+[dependencies]
+thiserror-no-std = "2.0.2"
+
 [features]
 default = []
-std = []
+std = ["thiserror-no-std/std"]
 
 [dev-dependencies]
 clap = { version = "4.3.21", features = ["derive"] }
