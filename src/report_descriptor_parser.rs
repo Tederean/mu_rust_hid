@@ -11,6 +11,7 @@
 //!
 
 use alloc::{collections::BTreeMap, vec, vec::Vec};
+use core::fmt;
 use thiserror_no_std::Error;
 
 use crate::{
@@ -36,6 +37,12 @@ pub enum ReportDescriptorError {
     InvalidReportNoLogicalMin,
     InvalidReportNoLogicalMax,
     InvalidReportLogicalRange,
+}
+
+impl fmt::Display for ReportDescriptorError {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "{:?}", self)
+    }
 }
 
 // Tracks Global State as parsing proceeds.
